@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { auth, db } from '../firebase';
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { db } from '../firebase';
 import { query, collection, orderBy, onSnapshot, QuerySnapshot } from 'firebase/firestore';
 import Message from './Message';
 import SendMessage from './SendMessage';
+import { DataContext } from './DataProvider';
 
 export default function Chat() {
-
+    
     const [messages, setMessages] = useState([]);
-
     const chatRef = useRef(null);
 
     useEffect(()=>{

@@ -1,11 +1,10 @@
-import React from 'react'
-import { auth } from '../firebase'
-import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useContext } from 'react'
 import { formatDate } from './helpers/datetime';
+import { DataContext } from './DataProvider';
 
 
 export default function Message({message}) {
-  const [user] = useAuthState(auth);
+  const { user }  = useContext(DataContext);
 
   return (
     <>

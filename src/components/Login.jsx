@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import { GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
 import { auth } from "../firebase";
 
-export default function Login({user}) {
+export default function Login() {
     const googleLogin = ()=>{
         const provider = new GoogleAuthProvider();
         signInWithRedirect(auth, provider)

@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Login from './Login'
-import { auth } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
 import Logout from './Logout';
 import UserState from './UserState';
+import { DataContext } from './DataProvider';
 
 export default function User() {
-  const [user] = useAuthState(auth);
-  const [usr, setUsr] = useState({
-      img: "",
-      name: ""
-  })
-
-  useEffect(() =>{
-    if (user == null){
-        setUsr({
-            img: "",
-            name: ""
-        })
-    }
-    else{
-        setUsr({
-            img: user.photoURL,
-            name: user.displayName
-        })
-    }
-  }, [user]);
+  const {user} = useContext(DataContext);
 
   return (
     <section className='user-content'>
@@ -35,10 +15,7 @@ export default function User() {
         <Logout />
       }
 
-      <UserState 
-      img={usr.img}
-      name={usr.name}
-      />
+      <UserState />
     </section>
   )
 }

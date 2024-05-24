@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useState } from 'react';
 import { auth, db } from '../firebase';
-import { useAuthState } from "react-firebase-hooks/auth";
+import { DataContext } from './DataProvider';
 
 export default function SendMessage() {
 
   const [input, setInput] = useState("");
-  const [user] = useAuthState(auth);
+  const { user } = useContext(DataContext);
 
   const send = async (e) =>{
     e.preventDefault()
+    setInput("");
     if (user == null){
       alert("Por favor inicie sesion con su cuenta de google para utilizar el chat.");
     }
@@ -24,7 +25,6 @@ export default function SendMessage() {
         datetime: serverTimestamp()
       });
     }
-    setInput("");
   }
 
   return (

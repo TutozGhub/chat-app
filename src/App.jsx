@@ -4,12 +4,15 @@ import viteLogo from '/vite.svg'
 import Chat from './components/Chat'
 import User from './components/User'
 import './App.css'
+import DataProvider from './components/DataProvider'
 
 function App() {
   return (
     <>
-      <User />
-      <Chat />
+      <DataProvider>
+        <User />
+        <Chat />
+      </DataProvider>
     </>
   )
 }
