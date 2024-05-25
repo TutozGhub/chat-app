@@ -7,6 +7,7 @@ import './App.css'
 import DataProvider from './components/DataProvider'
 
 function App() {
+
   return (
     <>
       <DataProvider>
