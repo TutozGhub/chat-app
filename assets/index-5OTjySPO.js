@@ -547,7 +547,7 @@ Error generating stack: `+s.message+`
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */async function fS(t,e){return bi(t,"POST","/v1/accounts:delete",e)}async function hv(t,e){return bi(t,"POST","/v1/accounts:lookup",e)}/**
+ */async function fS(t,e){return bi(t,"POST","v1/accounts:delete",e)}async function hv(t,e){return bi(t,"POST","v1/accounts:lookup",e)}/**
  * @license
  * Copyright 2020 Google LLC
  *
@@ -637,7 +637,7 @@ Error generating stack: `+s.message+`
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */async function vS(t,e){const n=await uv(t,{},async()=>{const r=yo({grant_type:"refresh_token",refresh_token:e}).slice(1),{tokenApiHost:i,apiKey:s}=t.config,o=cv(t,i,"/v1/token",`key=${s}`),l=await t._getAdditionalHeaders();return l["Content-Type"]="application/x-www-form-urlencoded",lv.fetch()(o,{method:"POST",headers:l,body:r})});return{accessToken:n.access_token,expiresIn:n.expires_in,refreshToken:n.refresh_token}}async function ES(t,e){return bi(t,"POST","/v2/accounts:revokeToken",wd(t,e))}/**
+ */async function vS(t,e){const n=await uv(t,{},async()=>{const r=yo({grant_type:"refresh_token",refresh_token:e}).slice(1),{tokenApiHost:i,apiKey:s}=t.config,o=cv(t,i,"v1/token",`key=${s}`),l=await t._getAdditionalHeaders();return l["Content-Type"]="application/x-www-form-urlencoded",lv.fetch()(o,{method:"POST",headers:l,body:r})});return{accessToken:n.access_token,expiresIn:n.expires_in,refreshToken:n.refresh_token}}async function ES(t,e){return bi(t,"POST","v2/accounts:revokeToken",wd(t,e))}/**
  * @license
  * Copyright 2020 Google LLC
  *
@@ -772,7 +772,7 @@ Error generating stack: `+s.message+`
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */async function AS(t,e={}){return bi(t,"GET","/v2/passwordPolicy",wd(t,e))}/**
+ */async function AS(t,e={}){return bi(t,"GET","v2/passwordPolicy",wd(t,e))}/**
  * @license
  * Copyright 2023 Google LLC
  *
@@ -862,7 +862,7 @@ Error generating stack: `+s.message+`
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */async function gi(t,e){return hS(t,"POST","/v1/accounts:signInWithIdp",wd(t,e))}/**
+ */async function gi(t,e){return hS(t,"POST","v1/accounts:signInWithIdp",wd(t,e))}/**
  * @license
  * Copyright 2020 Google LLC
  *
@@ -1297,7 +1297,7 @@ Error generating stack: `+s.message+`
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */async function IA(t,e={}){return bi(t,"GET","/v1/projects",e)}/**
+ */async function IA(t,e={}){return bi(t,"GET","v1/projects",e)}/**
  * @license
  * Copyright 2020 Google LLC
  *
