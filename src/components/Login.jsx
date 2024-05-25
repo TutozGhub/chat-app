@@ -11,7 +11,7 @@ export default function Login() {
     <>
         <button
         className='btn-login'
-        onClick={googleLogin}
+        onClick={()=>{googleLogin()}}
         >
             <i className="fa-brands fa-google"></i>
             Iniciar Sesion
