@@ -103,8 +103,9 @@ body{
     background-color: var(--login2);
 }
 .barra-chat .emojis{
-    bottom: 4rem;
     position: fixed;
+    bottom: 4rem;
+    left: calc(200px);
 }
 
 .msg{

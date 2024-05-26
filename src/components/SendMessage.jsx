@@ -36,25 +36,31 @@ export default function SendMessage() {
     onSubmit={send}
     >
       {!isMobile ? 
-        (<button
-          className='btn'
-          type='button'
-          onClick={()=>{
-            setEmojis(!emojis);
-          }}
-        >
-          <div className='emojis'
-          onClick={(e) => {e.stopPropagation();}}
-          >
-            <Picker
-            open={emojis}
-            onEmojiClick={(e)=>{
+        (
+        <>
+            <div className='emojis'
+            onClick={(e) => {e.stopPropagation();}}
+            >
+              <Picker
+              open={emojis}
+              lazyLoadEmojis={true}
+              onEmojiClick={(e)=>{
               setInput(`${input}${e.emoji} `);
+              setEmojis(false);
+              }}
+              />
+            </div>
+            <button
+            className='btn'
+            type='button'
+            onClick={()=>{
+              setEmojis(!emojis);
             }}
-            />
-          </div>
-          <i className="fa-solid fa-face-grin-tongue fa-2xl"></i>
-        </button>)
+          >
+            <i className="fa-solid fa-face-grin-tongue fa-2xl"></i>
+          </button>
+        </>
+        )
         : ""}
 
         <input
