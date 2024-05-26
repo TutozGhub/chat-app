@@ -10,7 +10,7 @@ export default function SendMessage() {
 
   const [input, setInput] = useState("");
   const [emojis, setEmojis] = useState("");
-  const { user } = useContext(DataContext);
+  const { user, isMobile } = useContext(DataContext);
 
   const send = async (e) =>{
     e.preventDefault()
@@ -35,7 +35,8 @@ export default function SendMessage() {
     className='barra-chat'
     onSubmit={send}
     >
-        <button
+      {!isMobile ? 
+        (<button
           className='btn'
           type='button'
           onClick={()=>{
@@ -53,7 +54,8 @@ export default function SendMessage() {
             />
           </div>
           <i className="fa-solid fa-face-grin-tongue fa-2xl"></i>
-        </button>
+        </button>)
+        : ""}
 
         <input
         className='text'
