@@ -13,14 +13,21 @@ export default function Chat() {
     const [hide, setHide] = useState("");
     const chatRef = useRef(null);
 
-    useEffect(()=>{
-        if (isOnLogin == false) {
-            setHide("");
-        }
+    const update = () => {
         if (isMobile == true & isOnLogin == true){
             setHide("hide");
         }
-    }, [isOnLogin])
+        else if (isMobile == true & isOnLogin == false){
+            setHide("");
+        }
+    }
+
+    useEffect(()=>{
+        if (isMobile == false) {
+            setHide("");
+        }
+    }, [isMobile])
+    useEffect(update, [isOnLogin])
 
     useEffect(()=>{
         if (chatRef.current) {

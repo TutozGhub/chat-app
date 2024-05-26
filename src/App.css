@@ -183,11 +183,15 @@ body{
         flex-direction: column-reverse;
     }
     .user-content{
-        width: 100%;
-        max-width: 100%;
+        width: auto;
+        max-width: none;
+        padding: 0;
         height: 100vh;
     }
     .barra-chat input{
         height: 2rem;
+    }
+    .btn-login{
+        margin: 1rem;
     }
 }

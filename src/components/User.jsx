@@ -7,27 +7,29 @@ import { useMediaQuery } from 'react-responsive';
 import BarraMobile from './BarraMobile';
 
 export default function User() {
-  const {user, isMobile, setIsMobile, isOnLogin } = useContext(DataContext);
+  const {user, isMobile, setIsMobile, isOnLogin, setIsOnLogin } = useContext(DataContext);
   const [hide, setHide] = useState("");
 
-    
-  useEffect(()=>{
-    if (isMobile == false) {
+  
+  const update = () => {
+    if (isMobile == true & isOnLogin == false){
+        setHide("hide");
+    }
+    else if (isMobile == true & isOnLogin == true){
         setHide("");
+    }
+}
+
+useEffect(() =>{
+    if (isMobile == false) {
+      setHide("");
+      setIsOnLogin(false);
     }
     else{
       setHide("hide");
     }
-}, [isMobile])
-
-useEffect(()=>{
-  if (isOnLogin == true) {
-      setHide("");
-  }
-  else if (isMobile == true & isOnLogin == false){
-      setHide("hide");
-  }
-}, [isOnLogin])
+  }, [isMobile])
+useEffect(update, [isOnLogin])
 
   setIsMobile(useMediaQuery({ query: '(max-width: 767px)' }));
 
