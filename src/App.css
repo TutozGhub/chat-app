@@ -16,7 +16,7 @@ body{
     background-color: #222;
     justify-content: end;
     width: 100%;
-    max-height: 100vh;
+    height: 100vh;
 }
 .chat-content{
     display: flex;
@@ -79,18 +79,18 @@ body{
     justify-content: space-around;
     align-items: center;
 }
-.barra-chat input, .barra-chat button{
+.barra-chat .text, .barra-chat .btn{
     height: 70%;
     margin: 0px 5px;
 }
-.barra-chat input{
+.barra-chat .text{
     border: solid 1px #d4d3d3;
     font-size: inherit;
     border-radius: 6px;
     outline: none;
     flex-grow: 6;
 }
-.barra-chat button{
+.barra-chat .btn{
     padding: 0;
     border: none;
     border-radius: 15px;
@@ -99,8 +99,12 @@ body{
     background-color: var(--login);
     color: white;
 }
-.barra-chat button:hover{
+.barra-chat .btn:hover{
     background-color: var(--login2);
+}
+.barra-chat .emojis{
+    bottom: 4rem;
+    position: fixed;
 }
 
 .msg{
@@ -188,7 +192,7 @@ body{
         padding: 0;
         height: 100vh;
     }
-    .barra-chat input{
+    .barra-chat .text{
         height: 2rem;
     }
     .btn-login{

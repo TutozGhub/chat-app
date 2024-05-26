@@ -3,10 +3,13 @@ import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useState } from 'react';
 import { auth, db } from '../firebase';
 import { DataContext } from './DataProvider';
+import EmojiPicker from 'emoji-picker-react';
+import Picker from 'emoji-picker-react';
 
 export default function SendMessage() {
 
   const [input, setInput] = useState("");
+  const [emojis, setEmojis] = useState("");
   const { user } = useContext(DataContext);
 
   const send = async (e) =>{
@@ -18,7 +21,7 @@ export default function SendMessage() {
     else if (input.trim() != ""){
       const {uid, displayName, photoURL} = auth.currentUser;
       await addDoc(collection(db, 'messages'), {
-        text: input,
+        text: input.trim(),
         name: displayName,
         uid,
         photo: photoURL,
@@ -32,15 +35,38 @@ export default function SendMessage() {
     className='barra-chat'
     onSubmit={send}
     >
+        <button
+          className='btn'
+          type='button'
+          onClick={()=>{
+            setEmojis(!emojis);
+          }}
+        >
+          <div className='emojis'
+          onClick={(e) => {e.stopPropagation();}}
+          >
+            <Picker
+            open={emojis}
+            onEmojiClick={(e)=>{
+              setInput(`${input}${e.emoji} `);
+            }}
+            />
+          </div>
+          <i className="fa-solid fa-face-grin-tongue fa-2xl"></i>
+        </button>
+
         <input
+        className='text'
         type="text"
         placeholder='Mensaje'
         onChange={(e) => {setInput(e.target.value)}}
         onKeyUp={(e) => {(e.code == "Enter") ? SubmitEvent : null}}
         value={input}
         />
+
         <button
         type='submit'
+        className='btn'
         >
             <i className="fa-solid fa-paper-plane"></i>
         </button>
