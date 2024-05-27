@@ -29,7 +29,6 @@ export default function SendMessage() {
       });
     }
   }
-
   return (
     <form
     className='barra-chat'
