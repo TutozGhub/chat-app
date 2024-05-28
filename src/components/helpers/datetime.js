@@ -12,7 +12,3 @@ export const formatDate = (unformatDate) =>{
 
     return date;
 }
-
-function mandar(coso1, coso2){
-    return coso1 + coso2;
-}
