@@ -26,6 +26,11 @@ jobs:
           VITE_APP_API_KEY: ${{ secrets.VITE_APP_API_KEY }}
         run: npm run build
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "tutos_aaf@hotmail.com"
+          git config --global user.name "TutozGhub"
+
       - name: Deploy to GitHub Pages
         run: npm run deploy
         env:
