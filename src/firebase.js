@@ -9,7 +9,7 @@ const firebaseConfig = {
     // storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
     // messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID,
     // appId: import.meta.env.VITE_APP_APP_ID
-    apiKey: "AIzaSyAv75wtae0X2-kvDOG8cAAxOI6KKE-MO6I",
+    apiKey: import.meta.env.VITE_APP_API_KEY,
     authDomain: "chat-app-react-a1686.firebaseapp.com",
     projectId: "chat-app-react-a1686",
     storageBucket: "chat-app-react-a1686.appspot.com",
